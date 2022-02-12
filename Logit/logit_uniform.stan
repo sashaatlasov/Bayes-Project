@@ -11,6 +11,6 @@ parameters {
 }
 
 model {
-  target += student_t_lpdf(beta | 20, 0, 7);
+  target += uniform_lpdf(beta | -8, 8);
   target += bernoulli_logit_lpmf(y | X * beta);
 }    
