@@ -63,7 +63,7 @@ simulation <- function(file_path, iterations=100){
     setTxtProgressBar(pb, i)
   }
   MAPE <- c(t(matrix(colMeans(abs((true_coefs_table - means) / true_coefs_table)))))
-  RMSE <- c(t(matrix(colMeans(sqrt((true_coefs_table - means) ^ 2)))))
+  RMSE <- c(t(matrix(sqrt(colMeans((true_coefs_table - means) ^ 2)))))
   close(pb)
   return(matrix(c(MAPE, RMSE), nrow = 2))
 }
